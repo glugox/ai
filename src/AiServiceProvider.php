@@ -13,11 +13,11 @@ class AiServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Register config file
-        $this->mergeConfigFrom(__DIR__ . '/../config/ai.php', 'ai');
+        $this->mergeConfigFrom(__DIR__.'/../config/ai.php', 'ai');
 
         // Register other bindings, services, etc.
         $this->app->singleton(AiManager::class, function ($app) {
-            return new AiManager(new DummyDriver());
+            return new AiManager(new DummyDriver);
         });
     }
 
@@ -28,7 +28,7 @@ class AiServiceProvider extends ServiceProvider
     {
         // Publish config
         $this->publishes([
-            __DIR__ . '/../config/ai.php' => config_path('ai.php'),
+            __DIR__.'/../config/ai.php' => config_path('ai.php'),
         ], 'config');
 
         // Load routes, views, translations if needed
