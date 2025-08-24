@@ -2,9 +2,9 @@
 
 namespace Glugox\Ai\Tests;
 
+use Glugox\Ai\AiServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Glugox\Ai\AiServiceProvider;
 
 class TestCase extends Orchestra
 {
