@@ -2,9 +2,9 @@
 
 namespace Glugox\Ai;
 
+use Glugox\Ai\Commands\AiCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Glugox\Ai\Commands\AiCommand;
 
 class AiServiceProvider extends PackageServiceProvider
 {
