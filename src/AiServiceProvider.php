@@ -2,24 +2,38 @@
 
 namespace Glugox\Ai;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Glugox\Ai\Commands\AiCommand;
+use Glugox\Ai\Drivers\DummyDriver;
+use Illuminate\Support\ServiceProvider;
 
-class AiServiceProvider extends PackageServiceProvider
+class AiServiceProvider extends ServiceProvider
 {
-    public function configurePackage(Package $package): void
+    /**
+     * Register any application services.
+     */
+    public function register(): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('ai')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_ai_table')
-            ->hasCommand(AiCommand::class);
+        // Register config file
+        $this->mergeConfigFrom(__DIR__ . '/../config/ai.php', 'ai');
+
+        // Register other bindings, services, etc.
+        $this->app->singleton(AiManager::class, function ($app) {
+            return new AiManager(new DummyDriver());
+        });
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        // Publish config
+        $this->publishes([
+            __DIR__ . '/../config/ai.php' => config_path('ai.php'),
+        ], 'config');
+
+        // Load routes, views, translations if needed
+        // $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'ai');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'ai');
     }
 }

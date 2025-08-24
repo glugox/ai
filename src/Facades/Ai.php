@@ -2,15 +2,13 @@
 
 namespace Glugox\Ai\Facades;
 
+use Glugox\Ai\AiManager;
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \Glugox\Ai\Ai
- */
 class Ai extends Facade
 {
-    protected static function getFacadeAccessor(): string
+    protected static function getFacadeAccessor()
     {
-        return \Glugox\Ai\Ai::class;
+        return AiManager::class;
     }
 }
