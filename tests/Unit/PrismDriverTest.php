@@ -14,7 +14,7 @@ it('uses PrismDriver to ask a prompt via PrismPHP', function () {
     $fake = Prism::fake([$fakeResponse]);
 
     // Act
-    $response = Ai::ask("What is 2 + 2?");
+    $response = Ai::ask('What is 2 + 2?');
 
     // Assert
     expect($response)->toBeInstanceOf(AiResponse::class)

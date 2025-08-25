@@ -4,8 +4,8 @@ namespace Glugox\Ai\Drivers;
 
 use Glugox\Ai\AiResponse;
 use Glugox\Ai\Contracts\AiDriver;
-use Prism\Prism\Prism;
 use Prism\Prism\Enums\Provider;
+use Prism\Prism\Prism;
 use Prism\Prism\Text\PendingRequest as PendingTextRequest;
 
 class PrismDriver implements AiDriver
@@ -25,7 +25,7 @@ class PrismDriver implements AiDriver
         // Pass the url to PrismPHP
         $response = $this->request
             ->using(Provider::OpenAI, $defaultModel, [
-                'url' => config('ai.providers.ollama.url')
+                'url' => config('ai.providers.ollama.url'),
             ])
             ->withPrompt($prompt)
             ->asText();

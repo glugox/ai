@@ -10,7 +10,6 @@ return [
     */
     'default_driver' => env('AI_DEFAULT_PROVIDER', 'ollama'),
 
-
     'drivers' => [
         'openai' => [
             'api_key' => env('OPENAI_API_KEY'),
