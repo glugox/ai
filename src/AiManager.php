@@ -2,22 +2,26 @@
 
 namespace Glugox\Ai;
 
-use Glugox\Ai\Contracts\AiDriver;
+use Glugox\Ai\Drivers\Driver;
+use Glugox\Ai\Request\AiRequest;
+use Glugox\Ai\Request\AiRequestBuilder;
 
 class AiManager
 {
-    protected AiDriver $driver;
-
-    public function __construct(AiDriver $driver)
-    {
-        $this->driver = $driver;
-    }
-
     /**
      * Ask a question to the AI model and get a response.
      */
-    public function ask(string $prompt): AiResponse
+    public function ask(AiRequest|string $aiRequest): AiResponse
     {
-        return $this->driver->ask($prompt);
+        if (is_string($aiRequest)) {
+            // If a string is provided, create a default AiRequest using the configured driver
+            $aiRequest = AiRequestBuilder::make()
+                ->driver(Driver::default())
+                ->text($aiRequest)
+                ->build();
+        }
+        return $aiRequest->handle();
     }
+
+
 }

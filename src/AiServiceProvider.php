@@ -2,7 +2,6 @@
 
 namespace Glugox\Ai;
 
-use Glugox\Ai\Drivers\DummyDriver;
 use Illuminate\Support\ServiceProvider;
 
 class AiServiceProvider extends ServiceProvider
@@ -17,7 +16,7 @@ class AiServiceProvider extends ServiceProvider
 
         // Register other bindings, services, etc.
         $this->app->singleton(AiManager::class, function ($app) {
-            return new AiManager(new DummyDriver());
+            return new AiManager();
         });
     }
 
