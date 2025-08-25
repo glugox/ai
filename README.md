@@ -15,13 +15,6 @@ You can install the package via composer:
 composer require glugox/ai
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="ai-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -35,17 +28,11 @@ return [
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="ai-views"
-```
-
 ## Usage
 
 ```php
-$ai = new Glugox\Ai();
-echo $ai->echoPhrase('Hello, Glugox!');
+echo Ai::ask("What is 2 + 2?")->text();
+// Outputs: 4
 ```
 
 ## Testing
