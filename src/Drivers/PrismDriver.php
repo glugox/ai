@@ -23,7 +23,7 @@ class PrismDriver implements AiDriver
     {
         $defaultModel = config('ai.drivers.ollama.model');
         Log::channel('magic')->info("Using Ollama model: {$defaultModel}");
-        Log::channel('magic')->info("Ollama URL: " . config('ai.drivers.ollama.url'));
+        Log::channel('magic')->info('Ollama URL: '.config('ai.drivers.ollama.url'));
 
         // Pass the url to PrismPHP
         $response = $this->request
