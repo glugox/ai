@@ -6,19 +6,21 @@ use Glugox\Ai\Contracts\AiDriver;
 
 class AiRequestBuilder
 {
-
     protected ?AiDriver $driver = null;
+
     protected string $promptText = '';
 
     public function text(string $promptText): self
     {
         $this->promptText = $promptText;
+
         return $this;
     }
 
     public function driver(AiDriver $driver): self
     {
         $this->driver = $driver;
+
         return $this;
     }
 
@@ -44,6 +46,6 @@ class AiRequestBuilder
      */
     public static function make(): self
     {
-        return new self();
+        return new self;
     }
 }

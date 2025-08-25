@@ -10,8 +10,7 @@ class AiRequest
     public function __construct(
         protected AiDriver $driver,
         protected string $prompt = '',
-    )
-    {}
+    ) {}
 
     /**
      * Handle the AI request and get a response.

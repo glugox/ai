@@ -20,8 +20,7 @@ class AiManager
                 ->text($aiRequest)
                 ->build();
         }
+
         return $aiRequest->handle();
     }
-
-
 }
