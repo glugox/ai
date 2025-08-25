@@ -8,9 +8,9 @@ use Glugox\Ai\Contracts\AiDriver;
 class DummyDriver implements AiDriver
 {
     protected array $map = [
-        "What is the capital of France?" => "Paris",
-        "What is 2 + 2?" => "4",
-        "What is the capital of Germany?" => "Berlin",
+        'What is the capital of France?' => 'Paris',
+        'What is 2 + 2?' => '4',
+        'What is the capital of Germany?' => 'Berlin',
     ];
 
     /**
