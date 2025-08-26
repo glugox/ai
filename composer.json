@@ -1,5 +1,6 @@
 {
     "name": "glugox/ai",
+    "type": "library",
     "version": "1.0.0",
     "description": "AI toolset for Glugox",
     "keywords": [
